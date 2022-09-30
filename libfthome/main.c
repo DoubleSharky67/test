@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "libft.h"
 
@@ -24,7 +25,7 @@ int	main(void)
 	s3 = "glouglou4545";
 	set = "ou5";
 	printf("%s\n", ft_strtrim(s3, set));
-*/
+
 	char **tab;
 	int i;
 
@@ -57,8 +58,19 @@ int	main(void)
 	printf("%d\n", memcmp("bouBou", "boubou", 0));
 	printf("%d\n", ft_memcmp("bouBou", "boubou", 0));
 
-//	printf("%s\n", strnstr("wqdqwfqwfglouwdqfq", "glou", 100));
         printf("%s\n", ft_strnstr("wqdqwfqwfglouwdqfq", "glou", 100));
+
+	printf("%d\n", atoi("	\n 0"));
+	printf("%d\n", ft_atoi("   \n 0"));
+
+
+	printf("%p\n", calloc(3, 0));
+	printf("%p\n", ft_calloc(3, 0));
+*/
+	char *strd;
+	strd = "glouglou";
+	printf("%s\n", strdup(strd));
+	printf("%s\n", ft_strdup(strd));
 }
 
 
