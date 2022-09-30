@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <ctype.h>
+#include <string.h>
 
 #include "libft.h"
 
@@ -33,4 +35,42 @@ int	main(void)
 		printf("%s\n", tab[i]);
 		i++;
 	}
+
+	printf("%d\n", toupper(122));
+	printf("%d\n", ft_toupper(122));
+
+	printf("%d\n", tolower(67));
+        printf("%d\n", ft_tolower(67));
+
+	char *stre1;
+
+	stre1 = "glougloubre";
+	printf("%s\n", strchr(stre1, 'o'));
+	printf("%s\n", ft_strchr(stre1, 'o'));
+
+	printf("%s\n", strrchr(stre1, 'o'));
+        printf("%s\n", ft_strrchr(stre1, 'o'));
+
+	printf("%p\n", memchr(stre1, '\0', 100));
+        printf("%p\n", ft_memchr(stre1, '\0', 100));
+
+	printf("%d\n", memcmp("bouBou", "boubou", 0));
+	printf("%d\n", ft_memcmp("bouBou", "boubou", 0));
+
+//	printf("%s\n", strnstr("wqdqwfqwfglouwdqfq", "glou", 100));
+        printf("%s\n", ft_strnstr("wqdqwfqwfglouwdqfq", "glou", 100));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
