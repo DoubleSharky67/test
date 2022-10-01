@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 15:22:38 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/01 15:24:45 by ffeaugas         ###   ########.fr       */
+/*   Created: 2022/09/26 20:03:00 by ffeaugas          #+#    #+#             */
+/*   Updated: 2022/10/01 17:29:28 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char *ptr;
+	char *d;
+	char *s;
+	size_t i;
 
-	if (!nmemb || !size)
+	d = (char *)dest;
+	s = (char *)src;
+	i = 0;
+	if (dest <= src)
 	{
-		ptr = malloc(1);
-		return (ptr);
+		ft_memcpy(dest, src, n);
 	}
-	ptr = malloc(size * nmemb);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, size * nmemb);
-	return (ptr);
+	else
+	{
+		while (i < n)
+		{
+			d[n - i - 1] = s[n - i - 1];
+			i++;
+		}
+		d[n] = '\0';
+	}
+	return (d);
 }

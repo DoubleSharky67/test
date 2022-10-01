@@ -1,40 +1,18 @@
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/29 12:39:01 by ffeaugas          #+#    #+#             */
+/*   Updated: 2022/09/29 15:00:36 by ffeaugas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-static char	**ft_init_strs(char **tab, char const *s, char c)
-{
-	int i;
-	int counter;
-	int j;
-
-	counter = 0;
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i] && s[i] != c)
-		{
-			counter++;
-			i++;
-		}
-		tab[j] = malloc(sizeof(char) * (counter + 1));
-		j++;
-		counter = 0;
-	}
-	tab[j] = NULL;
-	return (tab);
-}
-
-int	ft_emptytab(char const *s, char c)
+static int	ft_emptytab(char const *s, char c)
 {
 	int i;
 
@@ -63,20 +41,25 @@ static char	**ft_init_tab(char const *s, char c)
 	counter = 0;
 	while (s[i])
 	{
-		if (s[i] && i > 0 && s[i + 1] && s[i] == c && s[i - 1] != c)
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
 			counter++;
-		i++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	printf("%d\n", counter); //wdwfqfqw
-	tab = malloc(sizeof(char *) * (counter + 2));
-	ft_init_strs(tab, s, c);
+	tab = malloc(sizeof(char *) * (counter + 1));
 	return (tab);
 }
 
-void	ft_fill_str(char *str, char const *s, char c)
+static char	*ft_fill_str(char *str, char const *s, char c)
 {
 	int i;
 
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	str = malloc(sizeof(char) * (i + 1));
 	i = 0;
 	while (s[i] && s[i] != c)
 	{
@@ -84,6 +67,7 @@ void	ft_fill_str(char *str, char const *s, char c)
 		i++;
 	}
 	str[i] = '\0';
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
@@ -102,7 +86,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (s[i] && s[i] != c)
 		{
-			ft_fill_str(tab[j], s + i, c);
+			tab[j] = ft_fill_str(tab[j], s + i, c);
 			j++;
 		}
 		while (s[i] && s[i] != c)
