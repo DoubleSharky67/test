@@ -6,7 +6,7 @@
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:11:28 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/01 19:04:52 by ffeaugas         ###   ########.fr       */
+/*   Updated: 2022/10/02 15:36:16 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 
 
-char f(unsigned int i, char *str) //a vireeeeeeeeer
+char ft_test(unsigned int i, char *str)
 {
 	char c;
 
@@ -25,8 +25,14 @@ char f(unsigned int i, char *str) //a vireeeeeeeeer
 	return (c);
 }
 
+void ft_test2(unsigned int i, char *str)
+{
+	str[i] += 1;
+}
+
 int	main(void)
 {
+	size_t i;
 
 //---------------------ft_isalpha-------------------------
 printf("\n\n---------------------ft_isalpha-------------------------\n");
@@ -97,41 +103,12 @@ printf("\n\n---------------------ft_strlen-------------------------\n");
 printf("\n\n---------------------ft_memset-------------------------\n");
 
 
-	long int test;
-	long int *ptr;
+	char strmems[50];
 
-	ptr = &test;
-	test = 8;
-
-	ft_memset(&test, 1, sizeof(test));
+	strcpy(strmems, "glouglou");
+	ft_memset(strmems, '1', sizeof(4));
+	printf("%s\n", strmems);
 	
-	size_t i;
-	i = 0;
-		
-	while (i < sizeof(test))
-	{
-		if (test + i == 0)
-			printf("0\n");
-		else
-			printf("%ld\n", *(ptr + i));
-		i++;
-	}
-
-//	test = 8;
-//	memset(&test, 1, sizeof(test));
-//	
-//	i = 0;
-//		
-//	while (i < sizeof(test))
-//	{
-//		if (test + i == 0)
-//			printf("REF : 0\n");
-//		else
-//			printf("REF : %ld\n", *(ptr + i));
-//		i++;
-//	}
-
-
 //---------------------ft_bzero-------------------------
 printf("\n\n---------------------ft_bzero-------------------------\n");
 
@@ -153,21 +130,6 @@ printf("\n\n---------------------ft_bzero-------------------------\n");
 			printf("%d\n", *(ptr2 + i));
 		i++;
 	}
-
-//	test2 = 9;
-//	bzero(&test2, sizeof(test2));
-//	
-//	i = 0;
-//		
-//	while (i < sizeof(test2))
-//	{
-//		if (test2 + i == 0)
-//			printf("REF : 0\n");
-//		else
-//			printf("REF : %d\n", *(ptr2 + i));
-//		i++;
-//	}
-
 
 //---------------------ft_memcpy-------------------------
 printf("\n\n---------------------ft_memcpy-------------------------\n");
@@ -216,6 +178,7 @@ printf("\n\n---------------------ft_strlcat-------------------------\n");
 
 	char destlcat[50];
 
+	strcpy(destlcat, "glouglou");
 	printf("%ld\n", ft_strlcat(destlcat, "bzzglou", 40));
 	printf("%s\n", destlcat);
 
@@ -317,16 +280,15 @@ printf("\n\n---------------------ft_strtrim-------------------------\n");
 	char *setbz;
 
 	s3bz = "glouglou4545";
-	setbz = "ou5";
+	setbz = "gl5";
 	printf("%s\n", ft_strtrim(s3bz, setbz));
-
-	char **tabz;
 
 //---------------------ft_split-------------------------
 printf("\n\n---------------------ft_split-------------------------\n");
 
 
-	tabz = ft_split("aaaaaaaaaaaaaaaaaaaaaaa", 'a');
+	char **tabz;
+	tabz = ft_split("bbbbabbbbaabbb", 'b');
 	i = 0;
 	while (tabz[i])
 	{
@@ -335,43 +297,47 @@ printf("\n\n---------------------ft_split-------------------------\n");
 	}
 
 //---------------------ft_itoa-------------------------
-printf("---------------------ft_itoa-------------------------\n");
+printf("\n\n---------------------ft_itoa-------------------------\n");
 
 
-	printf("%s CA MARHE PAS EN NEGATIF\n", ft_itoa(2147483647));
+	printf("%s\n", ft_itoa(2147483647));
 
 
 //---------------------ft_strmapi-------------------------
 printf("\n\n---------------------ft_strmapi-------------------------\n");
 
-	char func = char (*f)(unsigned int, char*);
-	printf("%s\n", ft_strmapi("aaaaaaa", func));
+	char (*f)(unsigned int, char*);
+	f = &ft_test; 
+	printf("%s\n", ft_strmapi("aaaaaaa", f));
 
-
-
-
-/*
 //---------------------ft_striteri-------------------------
 printf("\n\n---------------------ft_striteri-------------------------\n");
+
+	void (*f2)(unsigned int, char*);
+	char strteri[5] = "bbbb";
+	f2 = &ft_test2;
+	ft_striteri(strteri, f2);
+	printf("%s\n", strteri);
+
 
 //---------------------ft_putchar_fd-------------------------
 printf("\n\n---------------------ft_putchar_fd-------------------------\n");
 
+	ft_putchar_fd('Z', 1);
+
 //---------------------ft_putstr_fd-------------------------
 printf("\n\n---------------------ft_putstr_fd-------------------------\n");
+
+	ft_putstr_fd("glouglou", 1);
 
 //---------------------ft_putendl_fd-------------------------
 printf("\n\n---------------------ft_putendl_fd-------------------------\n");
 
+	ft_putendl_fd("glouglou", 1);
+
 //---------------------ft_putnbr_fd-------------------------
 printf("\n\n---------------------ft_putnbr_fd-------------------------\n");
-*/
 
+	ft_putnbr_fd(2147483647, 1);
 
 }
-
-
-
-
-
-

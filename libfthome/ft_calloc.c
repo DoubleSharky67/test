@@ -6,7 +6,7 @@
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:22:38 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/01 15:24:45 by ffeaugas         ###   ########.fr       */
+/*   Updated: 2022/10/02 13:51:36 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char *ptr;
+	char	*ptr;
 
 	if (!nmemb || !size)
 	{
 		ptr = malloc(1);
+		ptr = 0;
 		return (ptr);
 	}
 	ptr = malloc(size * nmemb);

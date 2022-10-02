@@ -6,7 +6,7 @@
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:27:49 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/09/26 18:57:41 by ffeaugas         ###   ########.fr       */
+/*   Updated: 2022/10/02 13:50:38 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char *str;
-	size_t i;	
+	char	*str;
+	size_t	i;
 
 	str = (char *)s;
 	i = 0;

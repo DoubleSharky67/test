@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:43:44 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/02 18:29:50 by ffeaugas         ###   ########.fr       */
+/*   Created: 2022/10/02 10:31:19 by ffeaugas          #+#    #+#             */
+/*   Updated: 2022/10/02 14:12:31 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
-	char	*str;
+	int	i;
 
-	str = s;
 	i = 0;
-	while (i < n)
+	while (s[i])
 	{
-		str[i] = c;
+		f(i, s);
 		i++;
 	}
-	return (s);
 }

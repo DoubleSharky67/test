@@ -6,7 +6,7 @@
 #    By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 11:42:42 by ffeaugas          #+#    #+#              #
-#    Updated: 2022/10/01 18:54:20 by ffeaugas         ###   ########.fr        #
+#    Updated: 2022/10/02 11:09:51 by ffeaugas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,12 @@ SRCS =	main_libft.c \
 		ft_substr.c \
 		ft_split.c \
 		ft_itoa.c \
-		ft_strmapi.c
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c
 
 OBJ = $(SRCS:%.c=%.o)
 

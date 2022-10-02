@@ -6,7 +6,7 @@
 /*   By: ffeaugas <ffeaugas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:09:40 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/01 13:21:00 by ffeaugas         ###   ########.fr       */
+/*   Updated: 2022/10/02 13:55:23 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_nb_lenght(long int n)
 {
-	long int i;
-	int counter;
+	long int	i;
+	int			counter;
 
 	i = 10;
 	counter = 1;
@@ -29,9 +29,9 @@ static int	ft_nb_lenght(long int n)
 
 static char	*ft_neg_itoa(int n)
 {
-	char *str;
-	long int nb;
-	int i;
+	char		*str;
+	long int	nb;
+	int			i;
 
 	nb = (long)n * -1;
 	str = malloc(sizeof(char) * (ft_nb_lenght(nb) + 2));
@@ -49,9 +49,9 @@ static char	*ft_neg_itoa(int n)
 
 static char	*ft_pos_itoa(int n)
 {
-	char *str;
-	int i;
-	int nb;
+	char	*str;
+	int		i;
+	int		nb;
 
 	nb = n;
 	str = malloc(sizeof(char) * (ft_nb_lenght(n) + 1));
@@ -68,7 +68,7 @@ static char	*ft_pos_itoa(int n)
 
 char	*ft_itoa(int n)
 {
-	char *str;
+	char	*str;
 
 	if (n < 0)
 	{

@@ -6,15 +6,15 @@
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 12:39:01 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/09/29 15:00:36 by ffeaugas         ###   ########.fr       */
+/*   Updated: 2022/10/02 15:11:32 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int	ft_emptytab(char const *s, char c)
+static int	ft_empty_tab(char const *s, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -24,17 +24,18 @@ static int	ft_emptytab(char const *s, char c)
 		i++;
 	}
 	return (1);
-
 }
 
 static char	**ft_init_tab(char const *s, char c)
 {
-	int i;
-	int counter;
-	char **tab;
-	if (ft_emptytab(s, c))
+	int		i;
+	int		counter;
+	char	**tab;
+
+	if (ft_empty_tab(s, c))
 	{
 		tab = malloc(sizeof(char *));
+		tab[0] = NULL;
 		return (tab);
 	}
 	i = 0;
@@ -49,12 +50,13 @@ static char	**ft_init_tab(char const *s, char c)
 			i++;
 	}
 	tab = malloc(sizeof(char *) * (counter + 1));
+	tab[counter] = NULL;
 	return (tab);
 }
 
 static char	*ft_fill_str(char *str, char const *s, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -72,15 +74,16 @@ static char	*ft_fill_str(char *str, char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char **tab;
-	int i;
-	int j;
-	
+	char	**tab;
+	int		i;
+	int		j;
+
 	tab = ft_init_tab(s, c);
-	
+	if (tab == NULL)
+		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i])
+	while (s[i] && tab)
 	{
 		while (s[i] && s[i] == c)
 			i++;

@@ -6,7 +6,7 @@
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:36:41 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/09/26 18:01:22 by ffeaugas         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:16:43 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	long int i;
+	long int	i;
 
 	i = 0;
 	while (s[i])
